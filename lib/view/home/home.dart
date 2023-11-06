@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:ui/utils/extentions.dart';
 import 'package:ui/utils/styles.dart';
 import 'package:ui/view/home/widgets/banner_widget.dart';
+import 'package:ui/view/home/widgets/privacy_policy_widget.dart';
 import 'package:ui/view/home/widgets/product_widget.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -29,6 +30,7 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 2.hp, horizontal: 3.5.wp),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
               decoration: InputDecoration(
@@ -53,7 +55,120 @@ class _HomeState extends State<Home> {
               ],
             ),
             const Gap(15),
-            const StepperWidget()
+            const StepperWidget(),
+            const Gap(35),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'SOCIALS',
+                  style: Styles.textStyle,
+                ),
+                Text(
+                  "PLATFORMS",
+                  style: Styles.textStyle,
+                )
+              ],
+            ),
+            const Gap(15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ...[
+                  1,
+                  2,
+                ].map((e) => Padding(
+                      padding: EdgeInsets.only(right: 0.4.wp),
+                      child: const CircleAvatar(
+                        backgroundColor: Colors.black,
+                        child: Icon(
+                          Icons.android_rounded,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )),
+                const Spacer(),
+                ...[
+                  1,
+                  2,
+                ].map((e) => Padding(
+                      padding: EdgeInsets.only(right: 0.4.wp),
+                      child: const CircleAvatar(
+                        backgroundColor: Colors.black,
+                        child: Icon(
+                          Icons.invert_colors_on_sharp,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )),
+              ],
+            ),
+            const Gap(15),
+            Text(
+              'SIGN UP',
+              style: Styles.textStyle,
+            ),
+            const Gap(15),
+            const TextField(
+              decoration: InputDecoration(
+                hintText: 'Your email',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const Gap(15),
+            Container(
+              width: double.infinity,
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(vertical: 2.hp),
+              decoration: const BoxDecoration(
+                  shape: BoxShape.rectangle, color: Colors.black),
+              child: Center(
+                child: Text(
+                  'SUBSCRIBE',
+                  style: Styles.textStyleWhite,
+                ),
+              ),
+            ),
+            const Gap(15),
+            const PrivacyPolicyWidget(),
+            const Gap(45),
+            Center(
+              child: Text(
+                '@2010 - 2022 All Rights Reserved',
+                style: Styles.textStyleGrey,
+              ),
+            ),
+            const Gap(45),
+            Wrap(
+              spacing: 3.5.wp,
+              runSpacing: 2.hp,
+              children: [
+                Text(
+                  'Privacy Center |',
+                  style: Styles.textStyleGrey,
+                ),
+                Text(
+                  'Privacy & Cookie Policy |',
+                  style: Styles.textStyleGrey,
+                ),
+                Text(
+                  'Manage Cookies |',
+                  style: Styles.textStyleGrey,
+                ),
+                Text(
+                  'Terms & Conditions |',
+                  style: Styles.textStyleGrey,
+                ),
+                Text(
+                  'Copywrite Notice |',
+                  style: Styles.textStyleGrey,
+                ),
+                Text(
+                  'Imprint',
+                  style: Styles.textStyleGrey,
+                ),
+              ],
+            )
           ],
         ),
       ),

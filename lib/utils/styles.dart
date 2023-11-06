@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 class Styles {
   static var white = Colors.white;
   static var textStyle = const TextStyle(fontWeight: FontWeight.bold);
+
+  static var textStyleGrey =
+      const TextStyle(fontWeight: FontWeight.bold, color: Colors.grey);
   static var textStyleWhite =
       const TextStyle(fontWeight: FontWeight.bold, color: Colors.white);
   static var containerPrimary = const Color(0XFF3B3B3B);

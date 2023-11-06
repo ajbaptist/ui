@@ -4,9 +4,12 @@ import 'package:gap/gap.dart';
 import 'package:ui/utils/extentions.dart';
 import 'package:ui/utils/styles.dart';
 import 'package:ui/view/home/widgets/banner_widget.dart';
+import 'package:ui/view/home/widgets/brand_widget.dart';
+import 'package:ui/view/home/widgets/footer_widget.dart';
 import 'package:ui/view/home/widgets/privacy_policy_widget.dart';
 import 'package:ui/view/home/widgets/product_widget.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:ui/view/home/widgets/stepper_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -54,7 +57,7 @@ class _HomeState extends State<Home> {
                 ProductCardWidget()
               ],
             ),
-            const Gap(15),
+            const Gap(25),
             const StepperWidget(),
             const Gap(35),
             Row(
@@ -71,38 +74,7 @@ class _HomeState extends State<Home> {
               ],
             ),
             const Gap(15),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ...[
-                  1,
-                  2,
-                ].map((e) => Padding(
-                      padding: EdgeInsets.only(right: 0.4.wp),
-                      child: const CircleAvatar(
-                        backgroundColor: Colors.black,
-                        child: Icon(
-                          Icons.android_rounded,
-                          color: Colors.white,
-                        ),
-                      ),
-                    )),
-                const Spacer(),
-                ...[
-                  1,
-                  2,
-                ].map((e) => Padding(
-                      padding: EdgeInsets.only(right: 0.4.wp),
-                      child: const CircleAvatar(
-                        backgroundColor: Colors.black,
-                        child: Icon(
-                          Icons.invert_colors_on_sharp,
-                          color: Colors.white,
-                        ),
-                      ),
-                    )),
-              ],
-            ),
+            const BrandWidget(),
             const Gap(15),
             Text(
               'SIGN UP',
@@ -139,104 +111,9 @@ class _HomeState extends State<Home> {
               ),
             ),
             const Gap(45),
-            Wrap(
-              spacing: 3.5.wp,
-              runSpacing: 2.hp,
-              children: [
-                Text(
-                  'Privacy Center |',
-                  style: Styles.textStyleGrey,
-                ),
-                Text(
-                  'Privacy & Cookie Policy |',
-                  style: Styles.textStyleGrey,
-                ),
-                Text(
-                  'Manage Cookies |',
-                  style: Styles.textStyleGrey,
-                ),
-                Text(
-                  'Terms & Conditions |',
-                  style: Styles.textStyleGrey,
-                ),
-                Text(
-                  'Copywrite Notice |',
-                  style: Styles.textStyleGrey,
-                ),
-                Text(
-                  'Imprint',
-                  style: Styles.textStyleGrey,
-                ),
-              ],
-            )
+            const FooterWidget()
           ],
         ),
-      ),
-    );
-  }
-}
-
-class StepperWidget extends StatelessWidget {
-  const StepperWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            height: 5.hp,
-            width: 10.wp,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-                color: Colors.grey,
-                shape: BoxShape.rectangle,
-                border: Border.all(color: Colors.grey)),
-            child: Icon(
-              Icons.arrow_back_ios_sharp,
-              size: 2.hp,
-            ),
-          ),
-          const Gap(3),
-          ...[1, 2, 3, 4].map((e) => Padding(
-                padding: EdgeInsets.symmetric(horizontal: 1.wp),
-                child: Container(
-                  height: 5.hp,
-                  width: 10.wp,
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      border: Border.all(color: Colors.grey)),
-                  child: Text(
-                    e.toString(),
-                    style:
-                        Styles.textStyle.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                ),
-              )),
-          const Gap(3),
-          Container(
-            height: 5.hp,
-            width: 10.wp,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-                color: Colors.grey,
-                shape: BoxShape.rectangle,
-                border: Border.all(color: Colors.grey)),
-            child: Icon(
-              Icons.arrow_forward_ios_sharp,
-              color: Colors.black,
-              size: 2.hp,
-            ),
-          ),
-        ],
       ),
     );
   }
